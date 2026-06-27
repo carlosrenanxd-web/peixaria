@@ -28,7 +28,7 @@ const produtos = {
     {
       id: 1,
       nome: "Filé de Pescada",
-      desc: "Filé fresquinho direto do mar.",
+      desc: "Filé de pescada fresquinho direto do mar.",
       preco: 61.0,
       img: FilePescada,
     },
@@ -49,7 +49,7 @@ const produtos = {
     {
       id: 4,
       nome: "Agulhão Branco",
-      desc: "Filé de tilápia medio, já cortadinho e ensacado, pronto para o preparo.",
+      desc: "Filé de agulhão branco, já cortadinho e ensacado, pronto para o preparo.",
       preco: 40.0,
       img: AgulhaoBranco,
     },
@@ -163,7 +163,7 @@ function ProdutoCard({ produto, carrinho, onAdicionar, onRemover }) {
           {produto.desc}
         </Card.Text>
         <div className="d-flex justify-content-between align-items-center">
-          <span className="fw-bold" style={{ fontSize: "17px", color: "#0d6efd" }}>
+          <span className="fw-bold pe-3" style={{ fontSize: "17px", color: "#0d6efd" }}>
             R$ {produto.preco.toFixed(2).replace(".", ",")}
           </span>
           {qtd === 0 ? (
