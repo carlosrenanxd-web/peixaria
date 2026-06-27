@@ -13,14 +13,15 @@ import CamarãoM from "../assets/Camarão medio 38,99.jpeg";
 import FileCamarão from "../assets/File de camarão M 56,00.jpeg";
 import CamarãoPistola from "../assets/Camarão pistola 58,00.jpeg";
 
+import LagostaExportacao from "../assets/Lagosta tipo exportação.jpeg";
+
 import BuchadaBode from "../assets/Buchada de bode 45,00.jpeg";
 import GalinhaCipira from "../assets/Galinha Caipira 50,00.jpeg";
 import PicadoCarneiro from "../assets/Picado de carneiro 34,00.jpeg";
 import PicanhaBovinaArgentina from "../assets/Picanha bovina Argentina 89,00.jpeg";
 import FeijaoVerde from "../assets/Feijão verde 23,00.jpeg";
 
-const SEU_NUMERO = "5584998648492";
-const SEU_NUMERO1 = "5584921564886";
+const SEU_NUMERO = "5584921564886";
 
 const produtos = {
   peixes: [
@@ -47,7 +48,7 @@ const produtos = {
     },
     {
       id: 4,
-      nome: "Agulhao Branco",
+      nome: "Agulhão Branco",
       desc: "Filé de tilápia medio, já cortadinho e ensacado, pronto para o preparo.",
       preco: 40.0,
       img: AgulhaoBranco,
@@ -103,7 +104,7 @@ const produtos = {
       nome: "Lagosta",
       desc: "Lagosta inteira, totalmente natural.",
       preco: 48.99,
-      img: "https://marsemfim.com.br/wp-content/uploads/2014/07/lagosta.jpg",
+      img: LagostaExportacao,
     },
   ],
   nordestinas: [
@@ -286,10 +287,10 @@ export default function Produtos() {
   }
 
   return (
-    <div id="produtos" style={{ background: "#f8f9fa", minHeight: "100vh", paddingTop: "60px", paddingBottom: "100px" }}>
+    <div id="produtos" style={{ background: "#f8f9fa", minHeight: "100vh", paddingBottom: "100px" }}>
       <Container>
         {/* Header */}
-        <div className="text-center mb-5">
+        <div className="text-center mb-2">
           <Badge bg="primary" className="mb-2 px-3 py-2" style={{ fontSize: "12px", letterSpacing: "0.08em", borderRadius: "20px" }}>
             CARDÁPIO
           </Badge>
@@ -299,7 +300,7 @@ export default function Produtos() {
           <p className="text-secondary mx-auto" style={{ maxWidth: "480px", fontSize: "15px" }}>
             Peixes frescos e frutos do mar selecionados diariamente para a sua mesa.
           </p>
-          <hr style={{ width: "60px", borderTop: "2px solid #dee2e6", margin: "20px auto 0" }} />
+          <hr style={{ width: "100px", borderTop: "2px solid black", margin: "20px auto 0" }} />
         </div>
 
         {/* Seções */}
