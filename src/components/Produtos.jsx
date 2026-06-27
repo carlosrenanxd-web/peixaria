@@ -6,10 +6,13 @@ import tilapiaM from "../assets/File de tilápia M.jpeg";
 import AgulhaoBranco from "../assets/Agulhao branco 38,00.jpeg";
 import Meka from "../assets/Meka 45,00.jpeg";
 import FilePescada from "../assets/FilePescada.jpeg";
+
 import CamarãoM from "../assets/Camarão medio 38,99.jpeg";
 import FileCamarão from "../assets/File de camarão M 56,00.jpeg";
 import CamarãoPistola from "../assets/Camarão pistola 58,00.jpeg";
+
 import LagostaExportacao from "../assets/Lagosta tipo exportação.jpeg";
+
 import BuchadaBode from "../assets/Buchada de bode 45,00.jpeg";
 import GalinhaCipira from "../assets/Galinha Caipira 50,00.jpeg";
 import PicadoCarneiro from "../assets/Picado de carneiro 34,00.jpeg";
@@ -28,7 +31,7 @@ const produtos = {
       nome: "Filé de Pescada",
       desc: "Filé de pescada fresquinho direto do mar.",
       preco: 61.0,
-      estrelas: 5,
+      estrelas: 3,
       saidasMes: 38,
       img: FilePescada,
     },
@@ -64,21 +67,45 @@ const produtos = {
       nome: "Meka",
       desc: "Filé de Meka, já cortadinho, pronto para o preparo.",
       preco: 40.0,
-      estrelas: 3,
+      estrelas: 4,
       saidasMes: 18,
       img: Meka,
     },
   ],
   camarao: [
-    { id: 6, nome: "Camarão P", desc: "Camarão pequeno descascado.", preco: 58.99, estrelas: 4, saidasMes: 30, img: CamarãoM },
-    { id: 7, nome: "Camarão M", desc: "Camarão médio descascado.", preco: 72.0, estrelas: 5, saidasMes: 44, img: CamarãoM },
-    { id: 8, nome: "File de camarão", desc: "File de camarão descascado.", preco: 56.0, estrelas: 4, saidasMes: 27, img: FileCamarão },
+    {
+      id: 6,
+      nome: "Camarão P",
+      desc: "Camarão pequeno descascado.",
+      preco: 58.99,
+      estrelas: 3,
+      saidasMes: 30,
+      img: CamarãoM,
+    },
+    {
+      id: 7,
+      nome: "Camarão M",
+      desc: "Camarão médio descascado.",
+      preco: 72.0,
+      estrelas: 4,
+      saidasMes: 44,
+      img: CamarãoM,
+    },
+    {
+      id: 8,
+      nome: "File de camarão",
+      desc: "File de camarão descascado.",
+      preco: 56.0,
+      estrelas: 4,
+      saidasMes: 39,
+      img: FileCamarão,
+    },
     {
       id: 9,
       nome: "Camarão Pistola",
       desc: "Camarão com casca, totalmente natural.",
       preco: 35.0,
-      estrelas: 3,
+      estrelas: 5,
       saidasMes: 15,
       img: CamarãoPistola,
     },
@@ -98,8 +125,8 @@ const produtos = {
       nome: "Lagosta",
       desc: "Lagosta inteira, totalmente natural.",
       preco: 48.99,
-      estrelas: 5,
-      saidasMes: 12,
+      estrelas: 4,
+      saidasMes: 19,
       img: LagostaExportacao,
     },
   ],
@@ -110,7 +137,7 @@ const produtos = {
       desc: "Buchada de bode temperada no estilo tradicional nordestino.",
       preco: 45.0,
       estrelas: 4,
-      saidasMes: 22,
+      saidasMes: 8,
       img: BuchadaBode,
     },
     {
@@ -118,8 +145,8 @@ const produtos = {
       nome: "Galinha Caipira",
       desc: "Galinha caipira criada no campo, sabor incomparável.",
       preco: 50.0,
-      estrelas: 5,
-      saidasMes: 35,
+      estrelas: 4,
+      saidasMes: 11,
       img: GalinhaCipira,
     },
     {
@@ -128,7 +155,7 @@ const produtos = {
       desc: "Picado de carneiro temperado e pronto para o preparo.",
       preco: 34.0,
       estrelas: 3,
-      saidasMes: 19,
+      saidasMes: 6,
       img: PicadoCarneiro,
     },
     {
@@ -137,10 +164,18 @@ const produtos = {
       desc: "Picanha bovina importada da Argentina, corte nobre e macia.",
       preco: 89.0,
       estrelas: 5,
-      saidasMes: 28,
+      saidasMes: 7,
       img: PicanhaBovinaArgentina,
     },
-    { id: 16, nome: "Feijão Verde", desc: "Feijão verde novinho.", preco: 23.0, estrelas: 2, saidasMes: 10, img: FeijaoVerde },
+    {
+      id: 16,
+      nome: "Feijão Verde",
+      desc: "Feijão verde novinho.",
+      preco: 23.0,
+      estrelas: 4,
+      saidasMes: 10,
+      img: FeijaoVerde,
+    },
   ],
 };
 
@@ -149,7 +184,7 @@ const produtos = {
 // ─────────────────────────────────────────────────────────────────────────────
 function Estrelas({ quantidade }) {
   return (
-    <div style={{ display: "flex", gap: "2px", justifyContent: "center", margin: "8px 0 4px" }}>
+    <div style={{ display: "flex", gap: "2px", justifyContent: "start", margin: "8px 0 4px" }}>
       {[1, 2, 3, 4, 5].map((n) => (
         <span
           key={n}
@@ -191,16 +226,18 @@ function ProdutoCard({ produto, carrinho, onAdicionar, onRemover }) {
         <img src={produto.img} alt={produto.nome} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
       </div>
 
-      {/* Estrelas abaixo da foto */}
-      <Estrelas quantidade={produto.estrelas} />
-
       {/* Corpo */}
       <div style={{ padding: "8px 12px 12px", display: "flex", flexDirection: "column", flex: 1 }}>
         <p style={{ fontWeight: 700, fontSize: "14px", color: "#0d1b2a", margin: "0 0 4px", lineHeight: 1.3 }}>{produto.nome}</p>
         <p style={{ fontSize: "12px", color: "#6c757d", margin: "0 0 6px", lineHeight: 1.5, flexGrow: 1 }}>{produto.desc}</p>
 
+        {/* Estrelas */}
+        <Estrelas quantidade={produto.estrelas} />
+
         {/* Saídas do mês */}
-        <p style={{ fontSize: "11px", color: "#adb5bd", margin: "0 0 10px" }}>🔥 {produto.saidasMes} pedidos este mês</p>
+        <p style={{ fontSize: "11px", color: "#adb5bd", margin: "0 0 10px" }}>
+          total de pedidos <Badge>{produto.saidasMes}</Badge>
+        </p>
 
         {/* Preço + botão */}
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
