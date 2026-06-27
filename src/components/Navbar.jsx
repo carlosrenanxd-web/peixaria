@@ -1,0 +1,107 @@
+import { Container, Nav, Navbar } from "react-bootstrap";
+import { useState, useEffect } from "react";
+
+export default function NavbarSite() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    function handleScroll() {
+      setScrolled(window.scrollY > 50);
+    }
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  return (
+    <Navbar
+      bg="white"
+      expand="lg"
+      fixed="top"
+      className="border-bottom"
+      style={{
+        transition: "box-shadow 0.3s ease, padding 0.3s ease",
+        boxShadow: scrolled ? "0 4px 20px rgba(0,0,0,0.08)" : "none",
+        padding: scrolled ? "8px 0" : "14px 0",
+        borderBottom: scrolled ? "1px solid #e9ecef" : "1px solid transparent",
+      }}
+    >
+      <Container>
+        {/* Logo */}
+        <Navbar.Brand
+          href="#inicio"
+          className="fw-bold d-flex align-items-center gap-2"
+          style={{
+            fontSize: "18px",
+            color: "#0d1b2a",
+            letterSpacing: "-0.01em",
+          }}
+        >
+          <span
+            style={{
+              background: "#0d6efd",
+              color: "#fff",
+              borderRadius: "8px",
+              padding: "2px 8px",
+              fontSize: "15px",
+            }}
+          >
+            🐟
+          </span>
+          Icaro <span style={{ color: "#0d6efd" }}>Pescados</span>
+        </Navbar.Brand>
+
+        <Navbar.Toggle aria-controls="menu-nav" style={{ border: "none", boxShadow: "none" }} />
+
+        <Navbar.Collapse id="menu-nav">
+          <Nav className="ms-auto d-flex align-items-center gap-1">
+            {[
+              { href: "#inicio", label: "Início" },
+              { href: "#sobre", label: "Quem Somos" },
+              { href: "#produtos", label: "Produtos" },
+              { href: "#localizacao", label: "Localização" },
+            ].map(({ href, label }) => (
+              <Nav.Link
+                key={href}
+                href={href}
+                className="fw-medium px-3"
+                style={{
+                  color: "#4a5568",
+                  fontSize: "14px",
+                  borderRadius: "8px",
+                  transition: "color 0.2s ease, background 0.2s ease",
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.color = "#0d6efd";
+                  e.target.style.background = "#f0f6ff";
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.color = "#4a5568";
+                  e.target.style.background = "transparent";
+                }}
+              >
+                {label}
+              </Nav.Link>
+            ))}
+
+            {/* Botão Contato */}
+            <Nav.Link
+              href="#contato"
+              className="fw-bold px-3 py-2 ms-2"
+              style={{
+                background: "#0d6efd",
+                color: "#fff",
+                borderRadius: "8px",
+                fontSize: "14px",
+                transition: "opacity 0.2s ease",
+              }}
+              onMouseEnter={(e) => (e.target.style.opacity = "0.85")}
+              onMouseLeave={(e) => (e.target.style.opacity = "1")}
+            >
+              Contato
+            </Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+  );
+}
