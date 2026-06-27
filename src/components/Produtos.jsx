@@ -54,7 +54,7 @@ const produtos = {
       img: AgulhaoBranco,
     },
     {
-      id: 4,
+      id: 5,
       nome: "Meka",
       desc: "Filé de Meka, já cortadinho, pronto para o preparo.",
       preco: 40.0,
@@ -140,7 +140,7 @@ const produtos = {
       id: 5,
       nome: "Feijão Verde",
       desc: "Feijão verde novinho.",
-      preco: 89.0,
+      preco: 23.0,
       img: FeijaoVerde,
     },
   ],
