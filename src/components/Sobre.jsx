@@ -32,7 +32,7 @@ export default function Sobre() {
                 marginTop: "10px",
               }}
             >
-              Sobre a Ícaro Pescados
+              Sobre Ícaro Pescados
             </h2>
 
             <div
