@@ -51,7 +51,7 @@ export default function Localizacao() {
                 <div className="text-muted" style={{ fontSize: "0.9rem" }}>
                   Segunda a Sábado
                   <br />
-                  6h às 14h
+                  06:00h às 17:00h
                 </div>
               </div>
 
