@@ -11,13 +11,22 @@ import Meka02 from "../assets/Meka/Meka 45,00.jpeg";
 
 import FilePescada from "../assets/Pescada/FilePescada.jpeg";
 
-import CamaraoM from "../assets/Camarão/Camarão medio 38,99.jpeg";
+import CamaraoP01 from "../assets/Camarão/Camarão P/Camarão pegueno 01.jpeg";
 
-import FileCamarao from "../assets/Camarão/File de camarão M 56,00.jpeg";
+import CamaraoM01 from "../assets/Camarão/Camarão M/Camarão medio.jpeg";
 
-import CamaraoPistola from "../assets/Camarão/Camarão pistola 58,00.jpeg";
+import CamaraoG01 from "../assets/Camarão/Camarão G/Camarão G.webp";
+
+import CamaraoPistola01 from "../assets/Camarão/Camarão pistola/Camarão pistola 01.jpeg";
+
+import CamaraoFileP01 from "../assets/Camarão/Camarão P/Camarão pegueno file 01.jpeg";
+
+import CamaraoFileM01 from "../assets/Camarão/Camarão M/Camarão medio file 01.jpeg";
+
+import CamaraoFileG01 from "../assets/Camarão/Camarão G/Camarão G.webp";
 
 import LagostaExportacao from "../assets/Lagosta/Lagosta tipo exportação.jpeg";
+import Lagosta01 from "../assets/Lagosta/lagosta01.jpg";
 
 import BuchadaBode from "../assets/Buchada/Buchada de bode 45,00.jpeg";
 import BuchadaBode01 from "../assets/Buchada/Buchada de bode01.jpeg";
@@ -89,7 +98,7 @@ const produtos = {
       preco: 29.99,
       estrelas: 3,
       saidasMes: 30,
-      imgs: [CamaraoM],
+      imgs: [CamaraoP01],
     },
     {
       id: 7,
@@ -98,16 +107,16 @@ const produtos = {
       preco: 35.0,
       estrelas: 4,
       saidasMes: 44,
-      imgs: [CamaraoM],
+      imgs: [CamaraoM01],
     },
     {
       id: 8,
       nome: "Camarão G",
-      desc: "Camarão médio com casca e cabeça.",
+      desc: "Camarão grande com casca e cabeça.",
       preco: 50.0,
       estrelas: 4,
       saidasMes: 44,
-      imgs: [CamaraoM],
+      imgs: [CamaraoG01],
     },
     {
       id: 9,
@@ -116,7 +125,7 @@ const produtos = {
       preco: 58.0,
       estrelas: 5,
       saidasMes: 15,
-      imgs: [CamaraoPistola],
+      imgs: [CamaraoPistola01],
     },
     {
       id: 10,
@@ -125,7 +134,7 @@ const produtos = {
       preco: 58.0,
       estrelas: 4,
       saidasMes: 39,
-      imgs: [FileCamarao],
+      imgs: [CamaraoFileP01],
     },
     {
       id: 11,
@@ -134,7 +143,7 @@ const produtos = {
       preco: 70.0,
       estrelas: 5,
       saidasMes: 60,
-      imgs: ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUhx5o8uH6JUgqUL9GCvEYXwnNogGtPM2UUjcKixZuRr8D6hekc00dPss&s=10"],
+      imgs: [CamaraoFileM01],
     },
     {
       id: 12,
@@ -143,7 +152,7 @@ const produtos = {
       preco: 89.0,
       estrelas: 5,
       saidasMes: 60,
-      imgs: ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUhx5o8uH6JUgqUL9GCvEYXwnNogGtPM2UUjcKixZuRr8D6hekc00dPss&s=10"],
+      imgs: [CamaraoFileG01],
     },
   ],
   lagosta: [
@@ -154,7 +163,7 @@ const produtos = {
       preco: 48.99,
       estrelas: 4,
       saidasMes: 19,
-      imgs: [LagostaExportacao],
+      imgs: [LagostaExportacao, Lagosta01],
     },
   ],
   nordestinas: [
