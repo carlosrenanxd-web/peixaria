@@ -1,4 +1,6 @@
 import React from "react";
+import "./App.css";
+
 import Navbar from "./components/Navbar";
 import Inicio from "./components/Inicio";
 import Sobre from "./components/Sobre";
@@ -13,10 +15,15 @@ export default function App() {
       <Navbar />
       <div style={{ paddingTop: "70px" }}>
         <Inicio />
+        <div className="b-example-divider"></div>
         <Sobre />
+        <div className="b-example-divider"></div>
         <Produtos />
+        <div className="b-example-divider"></div>
         <Localizacao />
+        <div className="b-example-divider"></div>
         <Contato />
+        <div className="b-example-divider"></div>
         <Footer />
       </div>
     </div>

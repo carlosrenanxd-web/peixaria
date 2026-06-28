@@ -1,83 +1,109 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import Carousel from "react-bootstrap/Carousel";
+import "bootstrap/dist/css/bootstrap.min.css";
+import CarroInicio from "../assets/Carrousel inicio/foto carro.jpeg";
+
+const NUMERO = "5584921564886";
 
 export default function Inicio() {
-  const slides = [
-    {
-      imagem: "https://images.unsplash.com/photo-1544943910-4c1dc44aab44",
-      titulo: "Ícaro Pescados",
-      descricao: "Qualidade, frescor e confiança para sua família todos os dias.",
-    },
-    {
-      imagem: "https://images.unsplash.com/photo-1579631542720-3a87824fff86",
-      titulo: "Frutos do Mar Selecionados",
-      descricao: "Camarão, peixe e frutos do mar escolhidos com rigor e procedência.",
-    },
-    {
-      imagem: "https://images.unsplash.com/photo-1510130387422-82bed34b37e9",
-      titulo: "Atendimento e Entrega",
-      descricao: "Praticidade e rapidez para levar o melhor do mar até você.",
-    },
-  ];
-
   return (
-    <div id="inicio">
-      <Container fluid className="px-0">
-        <Row className="g-0">
-          <Col md={12}>
-            <Carousel fade interval={4000}>
-              {slides.map((slide, index) => (
-                <Carousel.Item key={index}>
-                  <img
-                    className="d-block w-100"
-                    src={slide.imagem}
-                    alt={slide.titulo}
-                    style={{
-                      height: "800px",
-                      objectFit: "cover",
-                      filter: "brightness(0.65)",
-                    }}
-                  />
+    <div id="inicio" style={{ background: "#0d1b2a", minHeight: "100vh", display: "flex", alignItems: "center" }}>
+      <Container>
+        <Row className="align-items-center g-5">
+          <Col md={6}>
+            <span style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: "#1d6eea" }}>
+              Zona Norte, Natal
+            </span>
 
-                  <Carousel.Caption
-                    style={{
-                      bottom: "30%",
-                    }}
-                  >
-                    <h1
-                      style={{
-                        fontWeight: "700",
-                        color: "#fff",
-                        letterSpacing: "2px",
-                      }}
-                    >
-                      {slide.titulo}
-                    </h1>
+            <h1 style={{ fontSize: "clamp(32px, 5vw, 56px)", fontWeight: 800, color: "#ffffff", lineHeight: 1.1, margin: "16px 0" }}>
+              Icaro Pescados, <span style={{ color: "#1d6eea" }}>frescor</span> direto pra sua mesa
+            </h1>
 
-                    <div
-                      style={{
-                        width: "80px",
-                        height: "3px",
-                        backgroundColor: "#0d6efd",
-                        margin: "15px auto",
-                      }}
-                    />
+            <p style={{ fontSize: "16px", color: "#6b7f96", lineHeight: 1.7, maxWidth: "420px", marginBottom: "32px" }}>
+              Peixes, camarao e frutos do mar selecionados diariamente. Entregamos em toda Natal com rapidez e qualidade.
+            </p>
 
-                    <p
-                      style={{
-                        fontSize: "1.1rem",
-                        color: "#f8f9fa",
-                        maxWidth: "600px",
-                        margin: "0 auto",
-                      }}
-                    >
-                      {slide.descricao}
-                    </p>
-                  </Carousel.Caption>
-                </Carousel.Item>
-              ))}
-            </Carousel>
+            <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", marginBottom: "36px" }}>
+              <span
+                style={{
+                  background: "#111e2d",
+                  border: "1px solid #1a2d3f",
+                  borderRadius: "20px",
+                  padding: "6px 14px",
+                  fontSize: "13px",
+                  color: "#fff",
+                  fontWeight: 600,
+                }}
+              >
+                Frete gratis na zona norte de Natal.
+              </span>
+              <span
+                style={{
+                  background: "#111e2d",
+                  border: "1px solid #1a2d3f",
+                  borderRadius: "20px",
+                  padding: "6px 14px",
+                  fontSize: "13px",
+                  color: "#fff",
+                  fontWeight: 600,
+                }}
+              >
+                Segunda a Sabado 08:00h-18:00h
+              </span>
+              <span
+                style={{
+                  background: "#111e2d",
+                  border: "1px solid #1a2d3f",
+                  borderRadius: "20px",
+                  padding: "6px 14px",
+                  fontSize: "13px",
+                  color: "#fff",
+                  fontWeight: 600,
+                }}
+              >
+                Entrega rapida
+              </span>
+            </div>
+
+            <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
+              <a
+                href="#produtos"
+                style={{
+                  background: "#1d6eea",
+                  color: "#fff",
+                  fontWeight: 700,
+                  padding: "14px 28px",
+                  borderRadius: "10px",
+                  textDecoration: "none",
+                  fontSize: "15px",
+                }}
+              >
+                Ver produtos
+              </a>
+              <a
+                href={"https://wa.me/" + NUMERO}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  background: "transparent",
+                  color: "#fff",
+                  fontWeight: 700,
+                  padding: "14px 28px",
+                  borderRadius: "10px",
+                  textDecoration: "none",
+                  fontSize: "15px",
+                  border: "1px solid #1a2d3f",
+                }}
+              >
+                Falar no WhatsApp
+              </a>
+            </div>
+          </Col>
+
+          <Col md={6} className="text-center">
+            <div style={{ borderRadius: "16px", overflow: "hidden", boxShadow: "0 24px 60px rgba(0,0,0,0.4)" }}>
+              <img src={CarroInicio} alt="Entrega Icaro Pescados" style={{ width: "100%", height: "auto", display: "block" }} />
+            </div>
           </Col>
         </Row>
       </Container>

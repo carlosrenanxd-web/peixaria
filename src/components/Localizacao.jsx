@@ -3,7 +3,7 @@ import { Container, Row, Col } from "react-bootstrap";
 
 export default function Localizacao() {
   return (
-    <div id="localizacao" className="bg-light mb-5">
+    <div id="localizacao" className="bg-light py-5">
       <Container>
         {/* Título */}
         <Row className="mb-4">
