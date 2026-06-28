@@ -2,28 +2,37 @@ import React, { useState } from "react";
 import { Container, Badge, Button, Offcanvas, Form } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import tilapiaM from "../assets/File de tilápia M.jpeg";
-import AgulhaoBranco from "../assets/Agulhao branco 38,00.jpeg";
-import Meka from "../assets/Meka 45,00.jpeg";
-import FilePescada from "../assets/FilePescada.jpeg";
+import tilapiaM from "../assets/Tilápia/File de tilápia M.jpeg";
 
-import CamarãoM from "../assets/Camarão medio 38,99.jpeg";
-import FileCamarão from "../assets/File de camarão M 56,00.jpeg";
-import CamarãoPistola from "../assets/Camarão pistola 58,00.jpeg";
+import AgulhaoBranco from "../assets/Agulhão branco/Agulhao branco 38,00.jpeg";
 
-import LagostaExportacao from "../assets/Lagosta tipo exportação.jpeg";
+import Meka01 from "../assets/Meka/Peixe-Meka.webp";
+import Meka02 from "../assets/Meka/Meka 45,00.jpeg";
 
-import BuchadaBode from "../assets/Buchada de bode 45,00.jpeg";
-import GalinhaCipira from "../assets/Galinha Caipira 50,00.jpeg";
-import PicadoCarneiro from "../assets/Picado de carneiro 34,00.jpeg";
-import PicanhaBovinaArgentina from "../assets/Picanha bovina Argentina 89,00.jpeg";
-import FeijaoVerde from "../assets/Feijão verde 23,00.jpeg";
+import FilePescada from "../assets/Pescada/FilePescada.jpeg";
+
+import CamaraoM from "../assets/Camarão/Camarão medio 38,99.jpeg";
+
+import FileCamarao from "../assets/Camarão/File de camarão M 56,00.jpeg";
+
+import CamaraoPistola from "../assets/Camarão/Camarão pistola 58,00.jpeg";
+
+import LagostaExportacao from "../assets/Lagosta/Lagosta tipo exportação.jpeg";
+
+import BuchadaBode from "../assets/Buchada/Buchada de bode 45,00.jpeg";
+import BuchadaBode01 from "../assets/Buchada/Buchada de bode01.jpeg";
+import BuchadaBode02 from "../assets/Buchada/Buchada de bode02.jpeg";
+
+import GalinhaCipira from "../assets/Galinha/Galinha Caipira 50,00.jpeg";
+
+import PicadoCarneiro from "../assets/Picado/Picado de carneiro 34,00.jpeg";
+
+import PicanhaBovinaArgentina from "../assets/Picanha/Picanha bovina Argentina 89,00.jpeg";
+
+import FeijaoVerde from "../assets/Feijão/Feijão verde 23,00.jpeg";
 
 const SEU_NUMERO = "5584921564886";
 
-// ─────────────────────────────────────────────────────────────────────────────
-// PRODUTOS — edite `estrelas` (1-5) e `saidasMes` conforme quiser
-// ─────────────────────────────────────────────────────────────────────────────
 const produtos = {
   peixes: [
     {
@@ -33,7 +42,7 @@ const produtos = {
       preco: 61.0,
       estrelas: 3,
       saidasMes: 38,
-      img: FilePescada,
+      imgs: [FilePescada],
     },
     {
       id: 2,
@@ -42,7 +51,7 @@ const produtos = {
       preco: 38.99,
       estrelas: 4,
       saidasMes: 52,
-      img: "https://oceanicaalimentos.com.br/wp-content/uploads/2021/03/FILE-TILAPIA-PESCADO.jpg",
+      imgs: ["https://oceanicaalimentos.com.br/wp-content/uploads/2021/03/FILE-TILAPIA-PESCADO.jpg"],
     },
     {
       id: 3,
@@ -51,7 +60,7 @@ const produtos = {
       preco: 40.0,
       estrelas: 4,
       saidasMes: 47,
-      img: tilapiaM,
+      imgs: [tilapiaM],
     },
     {
       id: 4,
@@ -60,7 +69,7 @@ const produtos = {
       preco: 40.0,
       estrelas: 3,
       saidasMes: 21,
-      img: AgulhaoBranco,
+      imgs: [AgulhaoBranco],
     },
     {
       id: 5,
@@ -69,131 +78,139 @@ const produtos = {
       preco: 40.0,
       estrelas: 4,
       saidasMes: 18,
-      img: Meka,
+      imgs: [Meka01, Meka02],
     },
   ],
   camarao: [
     {
       id: 6,
       nome: "Camarão P",
-      desc: "Camarão pequeno descascado.",
-      preco: 58.99,
+      desc: "Camarão pequeno com casca e cabeça.",
+      preco: 29.99,
       estrelas: 3,
       saidasMes: 30,
-      img: CamarãoM,
+      imgs: [CamaraoM],
     },
     {
       id: 7,
       nome: "Camarão M",
-      desc: "Camarão médio descascado.",
-      preco: 72.0,
+      desc: "Camarão médio com casca e cabeça.",
+      preco: 35.0,
       estrelas: 4,
       saidasMes: 44,
-      img: CamarãoM,
+      imgs: [CamaraoM],
     },
     {
       id: 8,
-      nome: "File de camarão",
-      desc: "File de camarão descascado.",
-      preco: 56.0,
+      nome: "Camarão G",
+      desc: "Camarão médio com casca e cabeça.",
+      preco: 50.0,
       estrelas: 4,
-      saidasMes: 39,
-      img: FileCamarão,
+      saidasMes: 44,
+      imgs: [CamaraoM],
     },
     {
       id: 9,
-      nome: "Camarão Pistola",
-      desc: "Camarão com casca, totalmente natural.",
-      preco: 35.0,
+      nome: "Camarão Pistola extra G",
+      desc: "Camarão pistola extra grande com casca e cabeça.",
+      preco: 58.0,
       estrelas: 5,
       saidasMes: 15,
-      img: CamarãoPistola,
+      imgs: [CamaraoPistola],
     },
     {
       id: 10,
-      nome: "Camarão G na Casca",
-      desc: "Camarão grande com casca.",
-      preco: 35.0,
+      nome: "File de camarão P",
+      desc: "File de camarão pequeno descascado pronto para preparo..",
+      preco: 58.0,
+      estrelas: 4,
+      saidasMes: 39,
+      imgs: [FileCamarao],
+    },
+    {
+      id: 11,
+      nome: "File de camarão M",
+      desc: "File de camarão medio descascado pronto para preparo.",
+      preco: 70.0,
       estrelas: 5,
       saidasMes: 60,
-      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUhx5o8uH6JUgqUL9GCvEYXwnNogGtPM2UUjcKixZuRr8D6hekc00dPss&s=10",
+      imgs: ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUhx5o8uH6JUgqUL9GCvEYXwnNogGtPM2UUjcKixZuRr8D6hekc00dPss&s=10"],
+    },
+    {
+      id: 12,
+      nome: "File de camarão G",
+      desc: "File de camarão grande descascado pronto para preparo.",
+      preco: 89.0,
+      estrelas: 5,
+      saidasMes: 60,
+      imgs: ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUhx5o8uH6JUgqUL9GCvEYXwnNogGtPM2UUjcKixZuRr8D6hekc00dPss&s=10"],
     },
   ],
   lagosta: [
     {
-      id: 11,
+      id: 13,
       nome: "Lagosta",
       desc: "Lagosta inteira, totalmente natural.",
       preco: 48.99,
       estrelas: 4,
       saidasMes: 19,
-      img: LagostaExportacao,
+      imgs: [LagostaExportacao],
     },
   ],
   nordestinas: [
     {
-      id: 12,
+      id: 14,
       nome: "Buchada de Bode",
       desc: "Buchada de bode temperada no estilo tradicional nordestino.",
       preco: 45.0,
       estrelas: 4,
       saidasMes: 8,
-      img: BuchadaBode,
+      imgs: [BuchadaBode, BuchadaBode01, BuchadaBode02],
     },
     {
-      id: 13,
+      id: 15,
       nome: "Galinha Caipira",
       desc: "Galinha caipira criada no campo, sabor incomparável.",
       preco: 50.0,
       estrelas: 4,
       saidasMes: 11,
-      img: GalinhaCipira,
+      imgs: [GalinhaCipira],
     },
     {
-      id: 14,
+      id: 16,
       nome: "Picado de Carneiro",
       desc: "Picado de carneiro temperado e pronto para o preparo.",
       preco: 34.0,
       estrelas: 3,
       saidasMes: 6,
-      img: PicadoCarneiro,
+      imgs: [PicadoCarneiro],
     },
     {
-      id: 15,
+      id: 17,
       nome: "Picanha Bovina Argentina",
       desc: "Picanha bovina importada da Argentina, corte nobre e macia.",
       preco: 89.0,
       estrelas: 5,
       saidasMes: 7,
-      img: PicanhaBovinaArgentina,
+      imgs: [PicanhaBovinaArgentina],
     },
     {
-      id: 16,
+      id: 18,
       nome: "Feijão Verde",
       desc: "Feijão verde novinho.",
       preco: 23.0,
       estrelas: 4,
       saidasMes: 10,
-      img: FeijaoVerde,
+      imgs: [FeijaoVerde],
     },
   ],
 };
 
-// ─────────────────────────────────────────────────────────────────────────────
-// Estrelas estáticas
-// ─────────────────────────────────────────────────────────────────────────────
 function Estrelas({ quantidade }) {
   return (
-    <div style={{ display: "flex", gap: "2px", justifyContent: "start", margin: "8px 0 4px" }}>
+    <div style={{ display: "flex", gap: "2px", margin: "8px 0 4px" }}>
       {[1, 2, 3, 4, 5].map((n) => (
-        <span
-          key={n}
-          style={{
-            fontSize: "16px",
-            color: n <= quantidade ? "#F5A623" : "#dee2e6",
-            lineHeight: 1,
-          }}
-        >
+        <span key={n} style={{ fontSize: "20px", color: n <= quantidade ? "#F5A623" : "#dee2e6", lineHeight: 1 }}>
           ★
         </span>
       ))}
@@ -201,9 +218,97 @@ function Estrelas({ quantidade }) {
   );
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-// Card de produto
-// ─────────────────────────────────────────────────────────────────────────────
+// Carrossel de imagens dentro do card
+function CardCarousel({ imgs, nome }) {
+  const [atual, setAtual] = useState(0);
+  const total = imgs.length;
+
+  function anterior(e) {
+    e.stopPropagation();
+    setAtual((prev) => (prev === 0 ? total - 1 : prev - 1));
+  }
+
+  function proximo(e) {
+    e.stopPropagation();
+    setAtual((prev) => (prev === total - 1 ? 0 : prev + 1));
+  }
+
+  return (
+    <div style={{ position: "relative", width: "100%", height: "180px", background: "#e9ecef", flexShrink: 0, overflow: "hidden" }}>
+      <img src={imgs[atual]} alt={nome} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+
+      {/* Setas — só aparecem se tiver mais de 1 foto */}
+      {total > 1 && (
+        <>
+          <button
+            onClick={anterior}
+            style={{
+              position: "absolute",
+              left: "6px",
+              top: "50%",
+              transform: "translateY(-50%)",
+              background: "rgba(0,0,0,0.45)",
+              border: "none",
+              borderRadius: "50%",
+              width: "28px",
+              height: "28px",
+              color: "#fff",
+              fontSize: "14px",
+              cursor: "pointer",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              zIndex: 2,
+            }}
+          >
+            ‹
+          </button>
+          <button
+            onClick={proximo}
+            style={{
+              position: "absolute",
+              right: "6px",
+              top: "50%",
+              transform: "translateY(-50%)",
+              background: "rgba(0,0,0,0.45)",
+              border: "none",
+              borderRadius: "50%",
+              width: "28px",
+              height: "28px",
+              color: "#fff",
+              fontSize: "14px",
+              cursor: "pointer",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              zIndex: 2,
+            }}
+          >
+            ›
+          </button>
+
+          {/* Contador ex: 1 / 3 */}
+          <div
+            style={{
+              position: "absolute",
+              bottom: "6px",
+              right: "8px",
+              background: "rgba(0,0,0,0.5)",
+              borderRadius: "10px",
+              padding: "2px 7px",
+              fontSize: "11px",
+              color: "#fff",
+              zIndex: 2,
+            }}
+          >
+            {atual + 1} / {total}
+          </div>
+        </>
+      )}
+    </div>
+  );
+}
+
 function ProdutoCard({ produto, carrinho, onAdicionar, onRemover }) {
   const item = carrinho.find((c) => c.id === produto.id);
   const qtd = item ? item.qtd : 0;
@@ -221,25 +326,19 @@ function ProdutoCard({ produto, carrinho, onAdicionar, onRemover }) {
         maxWidth: "240px",
       }}
     >
-      {/* Imagem */}
-      <div style={{ width: "100%", height: "180px", overflow: "hidden", background: "#e9ecef", flexShrink: 0 }}>
-        <img src={produto.img} alt={produto.nome} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
-      </div>
+      {/* Carrossel no lugar da imagem fixa */}
+      <CardCarousel imgs={produto.imgs} nome={produto.nome} />
 
-      {/* Corpo */}
       <div style={{ padding: "8px 12px 12px", display: "flex", flexDirection: "column", flex: 1 }}>
-        <p style={{ fontWeight: 700, fontSize: "14px", color: "#0d1b2a", margin: "0 0 4px", lineHeight: 1.3 }}>{produto.nome}</p>
-        <p style={{ fontSize: "12px", color: "#6c757d", margin: "0 0 6px", lineHeight: 1.5, flexGrow: 1 }}>{produto.desc}</p>
+        <p style={{ fontWeight: 700, fontSize: "15px", color: "#0d1b2a", margin: "0 0 4px", lineHeight: 1.3 }}>{produto.nome}</p>
+        <p style={{ fontSize: "13px", color: "#6c757d", margin: "0 0 6px", lineHeight: 1.5, flexGrow: 1 }}>{produto.desc}</p>
 
-        {/* Estrelas */}
         <Estrelas quantidade={produto.estrelas} />
 
-        {/* Saídas do mês */}
-        <p style={{ fontSize: "11px", color: "#adb5bd", margin: "0 0 10px" }}>
+        <p style={{ fontSize: "12px", color: "#adb5bd", margin: "0 0 10px" }}>
           total de pedidos <Badge>{produto.saidasMes}</Badge>
         </p>
 
-        {/* Preço + botão */}
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
           <span style={{ fontWeight: 700, fontSize: "16px", color: "#0d6efd" }}>R$ {produto.preco.toFixed(2).replace(".", ",")}</span>
 
@@ -279,9 +378,6 @@ function ProdutoCard({ produto, carrinho, onAdicionar, onRemover }) {
   );
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-// Grid responsivo — centralizado no mobile e na web
-// ─────────────────────────────────────────────────────────────────────────────
 function Secao({ titulo, subtitulo, itens, carrinho, onAdicionar, onRemover }) {
   return (
     <div style={{ marginBottom: "48px" }}>
@@ -290,16 +386,7 @@ function Secao({ titulo, subtitulo, itens, carrinho, onAdicionar, onRemover }) {
         <p style={{ color: "#6c757d", fontSize: "14px", margin: 0 }}>{subtitulo}</p>
         <div style={{ width: "36px", height: "3px", background: "#0d6efd", borderRadius: "2px", marginTop: "8px" }} />
       </div>
-
-      {/* Grid: centralizado com justify-content center */}
-      <div
-        style={{
-          display: "flex",
-          flexWrap: "wrap",
-          gap: "16px",
-          justifyContent: "center" /* ← centraliza no mobile E na web */,
-        }}
-      >
+      <div style={{ display: "flex", flexWrap: "wrap", gap: "16px", justifyContent: "center" }}>
         {itens.map((item) => (
           <div key={item.id} style={{ width: "240px", flexShrink: 0 }}>
             <ProdutoCard produto={item} carrinho={carrinho} onAdicionar={onAdicionar} onRemover={onRemover} />
@@ -310,9 +397,6 @@ function Secao({ titulo, subtitulo, itens, carrinho, onAdicionar, onRemover }) {
   );
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-// Página principal
-// ─────────────────────────────────────────────────────────────────────────────
 export default function Produtos() {
   const [carrinho, setCarrinho] = useState([]);
   const [showCarrinho, setShowCarrinho] = useState(false);
@@ -353,20 +437,29 @@ export default function Produtos() {
     if (!validarCliente()) return;
     const linhas = carrinho.map((i) => `• ${i.qtd}x ${i.nome} — R$ ${(i.preco * i.qtd).toFixed(2).replace(".", ",")}`).join("\n");
     const mensagem =
-      `🐟 *Pedido via site*\n\n` +
-      `👤 *Nome:* ${cliente.nome}\n` +
-      `📱 *Telefone:* ${cliente.telefone}\n` +
-      `📍 *Endereço de entrega:* ${cliente.endereco}\n\n` +
-      `🛒 *Itens do pedido:*\n${linhas}\n\n` +
-      `*Total: R$ ${totalPreco.toFixed(2).replace(".", ",")}*\n\n` +
-      `Aguardo confirmação! 😊`;
-    window.open(`https://wa.me/${SEU_NUMERO}?text=${encodeURIComponent(mensagem)}`, "_blank");
+      "🐟 *Pedido via site*\n\n" +
+      "👤 *Nome:* " +
+      cliente.nome +
+      "\n" +
+      "📱 *Telefone:* " +
+      cliente.telefone +
+      "\n" +
+      "📍 *Endereço de entrega:* " +
+      cliente.endereco +
+      "\n\n" +
+      "🛒 *Itens do pedido:*\n" +
+      linhas +
+      "\n\n" +
+      "*Total: R$ " +
+      totalPreco.toFixed(2).replace(".", ",") +
+      "*\n\n" +
+      "Aguardo confirmação! 😊";
+    window.open("https://wa.me/" + SEU_NUMERO + "?text=" + encodeURIComponent(mensagem), "_blank");
   }
 
   return (
     <div id="produtos" style={{ background: "#f8f9fa", minHeight: "100vh", paddingBottom: "100px" }}>
       <Container>
-        {/* Header */}
         <div style={{ textAlign: "center", marginBottom: "40px", paddingTop: "32px" }}>
           <Badge bg="primary" className="mb-2 px-3 py-2" style={{ fontSize: "12px", letterSpacing: "0.08em", borderRadius: "20px" }}>
             CARDÁPIO
@@ -412,7 +505,6 @@ export default function Produtos() {
         />
       </Container>
 
-      {/* Botão flutuante */}
       {totalItens > 0 && (
         <div style={{ position: "fixed", bottom: "24px", right: "24px", zIndex: 1000 }}>
           <Button
@@ -429,7 +521,6 @@ export default function Produtos() {
         </div>
       )}
 
-      {/* Offcanvas carrinho */}
       <Offcanvas show={showCarrinho} onHide={() => setShowCarrinho(false)} placement="end">
         <Offcanvas.Header closeButton style={{ borderBottom: "1px solid #dee2e6" }}>
           <Offcanvas.Title style={{ fontWeight: 700, color: "#0d1b2a" }}>🛒 Seu Carrinho de pedidos</Offcanvas.Title>
