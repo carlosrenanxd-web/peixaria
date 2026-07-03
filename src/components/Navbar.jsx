@@ -1,5 +1,6 @@
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { useState, useEffect } from "react";
+import logo from "../assets/logo-marca.png";
 
 export default function NavbarSite() {
   const [scrolled, setScrolled] = useState(false);
@@ -36,17 +37,15 @@ export default function NavbarSite() {
             letterSpacing: "-0.01em",
           }}
         >
-          <span
+          <img
+            src={logo}
+            alt="Ícaro Pescados"
             style={{
-              background: "#0d6efd",
-              color: "#fff",
-              borderRadius: "8px",
-              padding: "2px 8px",
-              fontSize: "15px",
+              height: scrolled ? "36px" : "48px",
+              width: "auto",
+              transition: "height 0.3s ease",
             }}
-          >
-            🐟
-          </span>
+          />
           Icaro <span style={{ color: "#0d6efd" }}>Pescados</span>
         </Navbar.Brand>
 

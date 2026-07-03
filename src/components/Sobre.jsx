@@ -6,7 +6,7 @@ export default function Sobre() {
     <section
       id="sobre"
       style={{
-        backgroundColor: "#f8f9fa",
+        backgroundColor: "#0d1b2a",
         padding: "100px 0",
       }}
     >
@@ -24,14 +24,7 @@ export default function Sobre() {
               Nossa História
             </span>
 
-            <h2
-              style={{
-                fontSize: "2.8rem",
-                fontWeight: "700",
-                color: "#212529",
-                marginTop: "10px",
-              }}
-            >
+            <h2 style={{ fontSize: "clamp(32px, 5vw, 56px)", fontWeight: 800, color: "#ffffff", lineHeight: 1.1, margin: "16px 0" }}>
               Sobre Ícaro Pescados
             </h2>
 
@@ -49,7 +42,7 @@ export default function Sobre() {
         {/* Bloco 1 */}
         <Row className="align-items-center mb-5">
           <Col md={6}>
-            <h4 style={{ color: "#212529", fontWeight: "600" }}>Mais de 15 anos de experiência</h4>
+            <h4 style={{ color: "#ffffff", fontWeight: "600" }}>Mais de 15 anos de experiência</h4>
 
             <p
               style={{
@@ -65,7 +58,7 @@ export default function Sobre() {
         {/* Bloco 2 */}
         <Row className="justify-content-end mb-5">
           <Col md={6} className="text-md-end">
-            <h4 style={{ color: "#212529", fontWeight: "600" }}>Produtos Selecionados</h4>
+            <h4 style={{ color: "#ffffff", fontWeight: "600" }}>Produtos Selecionados</h4>
 
             <p
               style={{
@@ -82,7 +75,7 @@ export default function Sobre() {
         {/* Bloco 3 */}
         <Row className="align-items-center">
           <Col md={6}>
-            <h4 style={{ color: "#212529", fontWeight: "600" }}>Compromisso com a Qualidade</h4>
+            <h4 style={{ color: "#ffffff", fontWeight: "600" }}>Compromisso com a Qualidade</h4>
 
             <p
               style={{

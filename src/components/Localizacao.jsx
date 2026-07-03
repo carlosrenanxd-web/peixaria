@@ -3,13 +3,15 @@ import { Container, Row, Col } from "react-bootstrap";
 
 export default function Localizacao() {
   return (
-    <div id="localizacao" className="bg-light py-5">
+    <div id="localizacao" className="py-5" style={{ background: "#0d1b2a" }}>
       <Container>
         {/* Título */}
         <Row className="mb-4">
           <Col className="text-center">
-            <h2 className="fw-bold">📍 Nossa Localização</h2>
-            <p className="text-muted">Venha nos visitar !</p>
+            <h2 className="fw-bold" style={{ color: "#ffffff" }}>
+              📍 Nossa Localização
+            </h2>
+            <p style={{ color: "#6c757d" }}>Venha nos visitar !</p>
           </Col>
         </Row>
 

@@ -325,7 +325,7 @@ function ProdutoCard({ produto, carrinho, onAdicionar, onRemover }) {
   return (
     <div
       style={{
-        background: "#fff",
+        background: "#ffffff",
         borderRadius: "12px",
         overflow: "hidden",
         boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
@@ -391,7 +391,7 @@ function Secao({ titulo, subtitulo, itens, carrinho, onAdicionar, onRemover }) {
   return (
     <div style={{ marginBottom: "48px" }}>
       <div style={{ marginBottom: "20px" }}>
-        <h4 style={{ fontWeight: 700, color: "#0d1b2a", fontSize: "20px", marginBottom: "4px" }}>{titulo}</h4>
+        <h4 style={{ fontWeight: 700, color: "#ffffff", fontSize: "20px", marginBottom: "4px" }}>{titulo}</h4>
         <p style={{ color: "#6c757d", fontSize: "14px", margin: 0 }}>{subtitulo}</p>
         <div style={{ width: "36px", height: "3px", background: "#0d6efd", borderRadius: "2px", marginTop: "8px" }} />
       </div>
@@ -467,13 +467,13 @@ export default function Produtos() {
   }
 
   return (
-    <div id="produtos" style={{ background: "#f8f9fa", minHeight: "100vh", paddingBottom: "100px" }}>
+    <div id="produtos" style={{ background: "#0d1b2a", minHeight: "100vh", paddingBottom: "100px" }}>
       <Container>
         <div style={{ textAlign: "center", marginBottom: "40px", paddingTop: "32px" }}>
           <Badge bg="primary" className="mb-2 px-3 py-2" style={{ fontSize: "12px", letterSpacing: "0.08em", borderRadius: "20px" }}>
             CARDÁPIO
           </Badge>
-          <h1 style={{ fontWeight: 700, color: "#0d1b2a", fontSize: "36px", marginTop: "8px" }}>Nossos Produtos</h1>
+          <h1 style={{ fontWeight: 700, color: "#ffffff", fontSize: "36px", marginTop: "8px" }}>Nossos Produtos</h1>
           <p style={{ color: "#6c757d", maxWidth: "480px", fontSize: "15px", margin: "0 auto" }}>
             Peixes frescos e frutos do mar selecionados diariamente para a sua mesa.
           </p>

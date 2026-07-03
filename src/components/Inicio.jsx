@@ -16,7 +16,7 @@ export default function Inicio() {
             </span>
 
             <h1 style={{ fontSize: "clamp(32px, 5vw, 56px)", fontWeight: 800, color: "#ffffff", lineHeight: 1.1, margin: "16px 0" }}>
-              Icaro Pescados, <span style={{ color: "#1d6eea" }}>frescor</span> direto pra sua mesa
+              Icaro Pescados, <span style={{ color: "#1d6eea" }}>Peixes e frutos do mar</span> direto pra sua mesa
             </h1>
 
             <p style={{ fontSize: "16px", color: "#6b7f96", lineHeight: 1.7, maxWidth: "420px", marginBottom: "32px" }}>
