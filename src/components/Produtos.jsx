@@ -319,66 +319,182 @@ function CardCarousel({ imgs, nome }) {
 }
 
 function ProdutoCard({ produto, carrinho, onAdicionar, onRemover }) {
+  const [hover, setHover] = useState(false);
   const item = carrinho.find((c) => c.id === produto.id);
   const qtd = item ? item.qtd : 0;
 
   return (
     <div
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
       style={{
-        background: "#ffffff",
-        borderRadius: "12px",
+        background: hover ? "#1c3252" : "#16263f",
+        borderRadius: "16px",
         overflow: "hidden",
-        boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
+        boxShadow: hover ? "0 12px 28px rgba(0,0,0,0.35)" : "0 2px 10px rgba(0,0,0,0.2)",
+        border: "1px solid #24385a",
         display: "flex",
         flexDirection: "column",
         width: "100%",
         maxWidth: "240px",
+        transform: hover ? "translateY(-4px)" : "translateY(0)",
+        transition: "transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease",
       }}
     >
       {/* Carrossel no lugar da imagem fixa */}
-      <CardCarousel imgs={produto.imgs} nome={produto.nome} />
+      <div style={{ position: "relative" }}>
+        <CardCarousel imgs={produto.imgs} nome={produto.nome} />
+        {qtd > 0 && (
+          <span
+            style={{
+              position: "absolute",
+              top: "8px",
+              right: "8px",
+              background: "#0d6efd",
+              color: "#fff",
+              fontSize: "11px",
+              fontWeight: 700,
+              padding: "3px 8px",
+              borderRadius: "999px",
+              letterSpacing: "0.02em",
+            }}
+          >
+            no carrinho
+          </span>
+        )}
+      </div>
 
-      <div style={{ padding: "8px 12px 12px", display: "flex", flexDirection: "column", flex: 1 }}>
-        <p style={{ fontWeight: 700, fontSize: "15px", color: "#0d1b2a", margin: "0 0 4px", lineHeight: 1.3 }}>{produto.nome}</p>
-        <p style={{ fontSize: "13px", color: "#6c757d", margin: "0 0 6px", lineHeight: 1.5, flexGrow: 1 }}>{produto.desc}</p>
+      <div style={{ padding: "12px 14px 14px", display: "flex", flexDirection: "column", flex: 1 }}>
+        <p
+          style={{
+            fontWeight: 700,
+            fontSize: "15px",
+            color: "#ffffff",
+            margin: "0 0 3px",
+            lineHeight: 1.3,
+            letterSpacing: "-0.01em",
+          }}
+        >
+          {produto.nome}
+        </p>
+        <p
+          style={{
+            fontSize: "12.5px",
+            color: "#93a2ba",
+            margin: "0 0 8px",
+            lineHeight: 1.5,
+            flexGrow: 1,
+            display: "-webkit-box",
+            WebkitLineClamp: 2,
+            WebkitBoxOrient: "vertical",
+            overflow: "hidden",
+          }}
+        >
+          {produto.desc}
+        </p>
 
         <Estrelas quantidade={produto.estrelas} />
 
-        <p style={{ fontSize: "12px", color: "#adb5bd", margin: "0 0 10px" }}>
-          total de pedidos <Badge>{produto.saidasMes}</Badge>
+        <p
+          style={{
+            fontSize: "11.5px",
+            color: "#6b7a93",
+            margin: "6px 0 12px",
+            display: "flex",
+            alignItems: "center",
+            gap: "5px",
+          }}
+        >
+          {produto.saidasMes} pedidos este mês
         </p>
 
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-          <span style={{ fontWeight: 700, fontSize: "16px", color: "#0d6efd" }}>R$ {produto.preco.toFixed(2).replace(".", ",")}</span>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            paddingTop: "10px",
+            borderTop: "1px solid #24385a",
+          }}
+        >
+          <span style={{ display: "flex", alignItems: "baseline", gap: "2px" }}>
+            <span style={{ fontWeight: 600, fontSize: "12px", color: "#6ea5d2" }}>R$</span>
+            <span style={{ fontWeight: 800, fontSize: "18px", color: "#ffffff", letterSpacing: "-0.02em" }}>
+              {produto.preco.toFixed(2).replace(".", ",")}
+            </span>
+          </span>
 
           {qtd === 0 ? (
             <Button
               size="sm"
-              variant="outline-primary"
-              style={{ borderRadius: "8px", fontSize: "12px", fontWeight: 600, whiteSpace: "nowrap" }}
+              style={{
+                background: "#0d6efd",
+                border: "none",
+                borderRadius: "999px",
+                fontSize: "12.5px",
+                fontWeight: 700,
+                padding: "6px 14px",
+                whiteSpace: "nowrap",
+                boxShadow: "0 2px 8px rgba(13,110,253,0.4)",
+                transition: "transform 0.15s ease, box-shadow 0.15s ease",
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.transform = "scale(1.04)";
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.transform = "scale(1)";
+              }}
               onClick={() => onAdicionar(produto)}
             >
               + Adicionar
             </Button>
           ) : (
-            <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
-              <Button
-                size="sm"
-                variant="outline-secondary"
-                style={{ borderRadius: "8px", width: "26px", height: "26px", padding: 0, fontWeight: 700, lineHeight: 1 }}
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "10px",
+                background: "#0d1b2a",
+                borderRadius: "999px",
+                padding: "4px 6px",
+              }}
+            >
+              <button
                 onClick={() => onRemover(produto.id)}
+                style={{
+                  border: "none",
+                  background: "#24385a",
+                  color: "#ffffff",
+                  width: "24px",
+                  height: "24px",
+                  borderRadius: "50%",
+                  fontWeight: 700,
+                  fontSize: "15px",
+                  lineHeight: 1,
+                  cursor: "pointer",
+                }}
               >
                 −
-              </Button>
-              <span style={{ minWidth: "18px", textAlign: "center", fontWeight: 700, fontSize: "14px" }}>{qtd}</span>
-              <Button
-                size="sm"
-                variant="outline-primary"
-                style={{ borderRadius: "8px", width: "26px", height: "26px", padding: 0, fontWeight: 700, lineHeight: 1 }}
+              </button>
+              <span style={{ minWidth: "14px", textAlign: "center", fontWeight: 700, fontSize: "13.5px", color: "#ffffff" }}>{qtd}</span>
+              <button
                 onClick={() => onAdicionar(produto)}
+                style={{
+                  border: "none",
+                  background: "#0d6efd",
+                  color: "#fff",
+                  width: "24px",
+                  height: "24px",
+                  borderRadius: "50%",
+                  fontWeight: 700,
+                  fontSize: "15px",
+                  lineHeight: 1,
+                  boxShadow: "0 1px 3px rgba(13,110,253,0.5)",
+                  cursor: "pointer",
+                }}
               >
                 +
-              </Button>
+              </button>
             </div>
           )}
         </div>
