@@ -29,7 +29,7 @@ export default function NavbarSite() {
         boxShadow: scrolled ? "0 4px 20px rgba(0,0,0,0.08)" : "none",
         padding: scrolled ? "12px 0" : "14px 0",
         borderBottom: scrolled ? "1px solid #e9ecef" : "1px solid transparent",
-        top: scrolled ? "12px" : "0px",
+        top: scrolled ? "20px" : "0px",
         margin: scrolled ? "0 12px" : "0",
         borderRadius: scrolled ? "14px" : "0px",
         left: 0,
