@@ -4,20 +4,25 @@ import logo from "../assets/logo-marca.png";
 
 export default function NavbarSite() {
   const [scrolled, setScrolled] = useState(false);
+  const [expanded, setExpanded] = useState(false);
 
   useEffect(() => {
     function handleScroll() {
+      // não muda o estado "scrolled" enquanto o menu mobile está aberto
+      if (expanded) return;
       setScrolled(window.scrollY > 50);
     }
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [expanded]);
 
   return (
     <Navbar
       bg="white"
       expand="lg"
       fixed="top"
+      expanded={expanded}
+      onToggle={(isExpanded) => setExpanded(isExpanded)}
       className="border-bottom"
       style={{
         transition: "box-shadow 0.3s ease, padding 0.3s ease",
@@ -51,7 +56,13 @@ export default function NavbarSite() {
 
         <Navbar.Toggle aria-controls="menu-nav" style={{ border: "none", boxShadow: "none" }} />
 
-        <Navbar.Collapse id="menu-nav">
+        <Navbar.Collapse
+          id="menu-nav"
+          style={{
+            maxHeight: "calc(100vh - 70px)",
+            overflowY: "auto",
+          }}
+        >
           <Nav className="ms-auto d-flex align-items-center gap-1">
             {[
               { href: "#inicio", label: "Início" },
@@ -62,6 +73,7 @@ export default function NavbarSite() {
               <Nav.Link
                 key={href}
                 href={href}
+                onClick={() => setExpanded(false)}
                 className="fw-medium px-3"
                 style={{
                   color: "#4a5568",
@@ -85,6 +97,7 @@ export default function NavbarSite() {
             {/* Botão Contato */}
             <Nav.Link
               href="#contato"
+              onClick={() => setExpanded(false)}
               className="fw-bold px-3 py-2 ms-2"
               style={{
                 background: "#0d6efd",
