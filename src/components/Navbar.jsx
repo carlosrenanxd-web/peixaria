@@ -30,7 +30,7 @@ export default function NavbarSite() {
         padding: scrolled ? "12px 0" : "14px 0",
         borderBottom: scrolled ? "1px solid #e9ecef" : "1px solid transparent",
         top: scrolled ? "20px" : "0px",
-        margin: scrolled ? "0 15px" : "0",
+        margin: scrolled ? "0 40px" : "0",
         borderRadius: scrolled ? "14px" : "0px",
         left: 0,
         right: 0,
