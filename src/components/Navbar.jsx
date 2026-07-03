@@ -25,10 +25,15 @@ export default function NavbarSite() {
       onToggle={(isExpanded) => setExpanded(isExpanded)}
       className="border-bottom"
       style={{
-        transition: "box-shadow 0.3s ease, padding 0.3s ease",
+        transition: "box-shadow 0.3s ease, padding 0.3s ease, top 0.3s ease, margin 0.3s ease, border-radius 0.3s ease",
         boxShadow: scrolled ? "0 4px 20px rgba(0,0,0,0.08)" : "none",
-        padding: scrolled ? "20px 0" : "14px 0",
+        padding: scrolled ? "12px 0" : "14px 0",
         borderBottom: scrolled ? "1px solid #e9ecef" : "1px solid transparent",
+        top: scrolled ? "12px" : "0px",
+        margin: scrolled ? "0 12px" : "0",
+        borderRadius: scrolled ? "14px" : "0px",
+        left: 0,
+        right: 0,
       }}
     >
       <Container>
