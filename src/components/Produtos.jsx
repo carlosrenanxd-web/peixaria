@@ -646,13 +646,27 @@ export default function Produtos() {
         </div>
       )}
 
-      <Offcanvas show={showCarrinho} onHide={() => setShowCarrinho(false)} placement="end">
-        <Offcanvas.Header closeButton style={{ borderBottom: "1px solid #dee2e6" }}>
-          <Offcanvas.Title style={{ fontWeight: 700, color: "#0d1b2a" }}>🛒 Seu Carrinho de pedidos</Offcanvas.Title>
+      <Offcanvas show={showCarrinho} onHide={() => setShowCarrinho(false)} placement="end" style={{ background: "#16263f" }}>
+        <style>{`
+    .carrinho-input::placeholder {
+      color: #6b7a93 !important;
+      opacity: 1;
+    }
+    .carrinho-input:focus {
+      background: #1c3252 !important;
+      border-color: #0d6efd !important;
+      box-shadow: 0 0 0 0.2rem rgba(13,110,253,0.25) !important;
+      color: #ffffff !important;
+    }
+  `}</style>
+
+        <Offcanvas.Header closeButton closeVariant="white" style={{ borderBottom: "1px solid #24385a" }}>
+          <Offcanvas.Title style={{ fontWeight: 700, color: "#ffffff" }}>🛒 Seu Carrinho de pedidos</Offcanvas.Title>
         </Offcanvas.Header>
+
         <Offcanvas.Body className="d-flex flex-column" style={{ overflowY: "auto" }}>
           {carrinho.length === 0 ? (
-            <p style={{ color: "#6c757d", textAlign: "center", marginTop: "40px" }}>Nenhum item adicionado ainda.</p>
+            <p style={{ color: "#93a2ba", textAlign: "center", marginTop: "40px" }}>Nenhum item adicionado ainda.</p>
           ) : (
             <>
               <div style={{ flexGrow: 1 }}>
@@ -664,44 +678,73 @@ export default function Produtos() {
                       justifyContent: "space-between",
                       alignItems: "center",
                       padding: "12px 0",
-                      borderBottom: "1px solid #f1f3f5",
+                      borderBottom: "1px solid #24385a",
                     }}
                   >
                     <div>
-                      <p style={{ fontWeight: 700, margin: 0, fontSize: "14px", color: "#0d1b2a" }}>{item.nome}</p>
-                      <small style={{ color: "#6c757d" }}>
+                      <p style={{ fontWeight: 700, margin: 0, fontSize: "14px", color: "#ffffff" }}>{item.nome}</p>
+                      <small style={{ color: "#93a2ba" }}>
                         {item.qtd}x — R$ {(item.preco * item.qtd).toFixed(2).replace(".", ",")}
                       </small>
                     </div>
-                    <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                      <Button
-                        size="sm"
-                        variant="outline-secondary"
-                        style={{ borderRadius: "8px", width: "28px", height: "28px", padding: 0 }}
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "10px",
+                        background: "#0d1b2a",
+                        borderRadius: "999px",
+                        padding: "4px 6px",
+                      }}
+                    >
+                      <button
                         onClick={() => removerDoCarrinho(item.id)}
+                        style={{
+                          border: "none",
+                          background: "#24385a",
+                          color: "#ffffff",
+                          width: "26px",
+                          height: "26px",
+                          borderRadius: "50%",
+                          fontWeight: 700,
+                          fontSize: "15px",
+                          lineHeight: 1,
+                          cursor: "pointer",
+                        }}
                       >
                         −
-                      </Button>
-                      <span style={{ fontWeight: 700 }}>{item.qtd}</span>
-                      <Button
-                        size="sm"
-                        variant="outline-primary"
-                        style={{ borderRadius: "8px", width: "28px", height: "28px", padding: 0 }}
+                      </button>
+                      <span style={{ fontWeight: 700, color: "#ffffff", minWidth: "14px", textAlign: "center" }}>{item.qtd}</span>
+                      <button
                         onClick={() => adicionarAoCarrinho(item)}
+                        style={{
+                          border: "none",
+                          background: "#0d6efd",
+                          color: "#ffffff",
+                          width: "26px",
+                          height: "26px",
+                          borderRadius: "50%",
+                          fontWeight: 700,
+                          fontSize: "15px",
+                          lineHeight: 1,
+                          boxShadow: "0 1px 3px rgba(13,110,253,0.5)",
+                          cursor: "pointer",
+                        }}
                       >
                         +
-                      </Button>
+                      </button>
                     </div>
                   </div>
                 ))}
               </div>
 
-              <div style={{ borderTop: "2px solid #dee2e6", paddingTop: "16px", marginTop: "12px" }}>
-                <p style={{ fontWeight: 700, fontSize: "14px", color: "#0d1b2a", marginBottom: "12px" }}>📋 Dados para entrega</p>
+              <div style={{ borderTop: "2px solid #24385a", paddingTop: "16px", marginTop: "12px" }}>
+                <p style={{ fontWeight: 700, fontSize: "14px", color: "#ffffff", marginBottom: "12px" }}>📋 Dados para entrega</p>
 
                 <Form.Group className="mb-3">
-                  <Form.Label style={{ fontSize: "13px", fontWeight: 600, color: "#495057" }}>Nome completo do cliente</Form.Label>
+                  <Form.Label style={{ fontSize: "13px", fontWeight: 600, color: "#93a2ba" }}>Nome completo do cliente</Form.Label>
                   <Form.Control
+                    className="carrinho-input"
                     type="text"
                     placeholder="Seu nome"
                     value={cliente.nome}
@@ -710,14 +753,21 @@ export default function Produtos() {
                       setErros((p) => ({ ...p, nome: "" }));
                     }}
                     isInvalid={!!erros.nome}
-                    style={{ borderRadius: "8px", fontSize: "14px" }}
+                    style={{
+                      borderRadius: "8px",
+                      fontSize: "14px",
+                      background: "#0d1b2a",
+                      border: "1px solid #24385a",
+                      color: "#ffffff",
+                    }}
                   />
                   <Form.Control.Feedback type="invalid">{erros.nome}</Form.Control.Feedback>
                 </Form.Group>
 
                 <Form.Group className="mb-3">
-                  <Form.Label style={{ fontSize: "13px", fontWeight: 600, color: "#495057" }}>Telefone / WhatsApp</Form.Label>
+                  <Form.Label style={{ fontSize: "13px", fontWeight: 600, color: "#93a2ba" }}>Telefone / WhatsApp</Form.Label>
                   <Form.Control
+                    className="carrinho-input"
                     type="tel"
                     placeholder="(84) 99999-9999"
                     value={cliente.telefone}
@@ -726,14 +776,21 @@ export default function Produtos() {
                       setErros((p) => ({ ...p, telefone: "" }));
                     }}
                     isInvalid={!!erros.telefone}
-                    style={{ borderRadius: "8px", fontSize: "14px" }}
+                    style={{
+                      borderRadius: "8px",
+                      fontSize: "14px",
+                      background: "#0d1b2a",
+                      border: "1px solid #24385a",
+                      color: "#ffffff",
+                    }}
                   />
                   <Form.Control.Feedback type="invalid">{erros.telefone}</Form.Control.Feedback>
                 </Form.Group>
 
                 <Form.Group className="mb-4">
-                  <Form.Label style={{ fontSize: "13px", fontWeight: 600, color: "#495057" }}>Endereço de entrega</Form.Label>
+                  <Form.Label style={{ fontSize: "13px", fontWeight: 600, color: "#93a2ba" }}>Endereço de entrega</Form.Label>
                   <Form.Control
+                    className="carrinho-input"
                     as="textarea"
                     rows={3}
                     placeholder="Rua, número, bairro, complemento..."
@@ -743,20 +800,32 @@ export default function Produtos() {
                       setErros((p) => ({ ...p, endereco: "" }));
                     }}
                     isInvalid={!!erros.endereco}
-                    style={{ borderRadius: "8px", fontSize: "14px", resize: "none" }}
+                    style={{
+                      borderRadius: "8px",
+                      fontSize: "14px",
+                      resize: "none",
+                      background: "#0d1b2a",
+                      border: "1px solid #24385a",
+                      color: "#ffffff",
+                    }}
                   />
                   <Form.Control.Feedback type="invalid">{erros.endereco}</Form.Control.Feedback>
                 </Form.Group>
 
-                <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "12px" }}>
-                  <span style={{ fontWeight: 700, fontSize: "16px" }}>Total da compra</span>
-                  <span style={{ fontWeight: 700, fontSize: "18px", color: "#0d6efd" }}>R$ {totalPreco.toFixed(2).replace(".", ",")}</span>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: "12px" }}>
+                  <span style={{ fontWeight: 700, fontSize: "16px", color: "#ffffff" }}>Total da compra</span>
+                  <span style={{ fontWeight: 800, fontSize: "18px", color: "#6ea5d2" }}>R$ {totalPreco.toFixed(2).replace(".", ",")}</span>
                 </div>
 
                 <Button
-                  variant="success"
                   className="w-100 fw-bold py-3"
-                  style={{ borderRadius: "12px", fontSize: "15px" }}
+                  style={{
+                    borderRadius: "12px",
+                    fontSize: "15px",
+                    background: "#0d6efd",
+                    border: "none",
+                    boxShadow: "0 4px 14px rgba(13,110,253,0.35)",
+                  }}
                   onClick={finalizarPedido}
                 >
                   📲 Finalizar pelo WhatsApp
