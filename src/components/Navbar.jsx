@@ -27,7 +27,7 @@ export default function NavbarSite() {
       style={{
         transition: "box-shadow 0.3s ease, padding 0.3s ease",
         boxShadow: scrolled ? "0 4px 20px rgba(0,0,0,0.08)" : "none",
-        padding: scrolled ? "14px 0" : "14px 0",
+        padding: scrolled ? "20px 0" : "14px 0",
         borderBottom: scrolled ? "1px solid #e9ecef" : "1px solid transparent",
       }}
     >
